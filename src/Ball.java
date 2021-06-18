@@ -10,10 +10,11 @@ public class Ball {
 
 	private double cx;
 	private double cy;
-	private final double width;
-	private final double height;
-	private final Color color;
-	private final double speed;
+	private double width;
+	private double height;
+	private Color color;
+	private double speed;
+	private double xDir, yDir;
 
 	/**
 		Construtor da classe Ball. Observe que quem invoca o construtor desta classe define a velocidade da bola 
@@ -44,8 +45,8 @@ public class Ball {
 
 	public void draw(){
 
-		GameLib.setColor(Color.WHITE);
-		GameLib.fillRect(400, 300, 20, 20);
+		GameLib.setColor(this.color);
+		GameLib.fillRect(this.cx, this.cy, this.width, this.height);
 	}
 
 	/**
@@ -86,7 +87,7 @@ public class Ball {
 	*/
 	
 	public boolean checkCollision(Wall wall){
-
+		return false;
 	}
 
 	/**

@@ -8,14 +8,16 @@ import java.awt.event.KeyEvent;
 
 public class Player {
 
-	private final double cx;
+	private double cx;
 	private double cy;
-	private final double width;
-	private final double height;
-	private final Color color;
-	private final String id;
-	private final double[] v_limit;
-	private final double speed;
+	private double width;
+	private double height;
+	private Color color;
+	private String id;
+	private double[] v_limit;
+	private double speed;
+
+	private double yVel, xVel;
 
 	/**
 		Construtor da classe Player.
@@ -47,8 +49,8 @@ public class Player {
 
 	public void draw(){
 
-		GameLib.setColor(Color.GREEN);
-		GameLib.fillRect(80, 300, 20, 100);
+		GameLib.setColor(this.color);
+		GameLib.fillRect(this.cx, this.cy, this.width, this.height);
 	}
 
 	/**
@@ -60,7 +62,8 @@ public class Player {
 	*/
 
 	public void moveUp(long delta){
-		double aux = delta * this.speed;
+		double aux = this.speed * delta;
+
 		this.cy -= aux;
 	}
 
@@ -73,8 +76,10 @@ public class Player {
 	*/
 
 	public void moveDown(long delta){
-		double dist = delta * this.speed;
-		this.cy -= dist;
+
+		double aux = this.speed * delta;
+
+		this.cy += aux;
 	}
 
 	/**

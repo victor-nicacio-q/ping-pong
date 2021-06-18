@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class Score {
 
-	private final String playerId;
+	private String playerId;
 	private int score;
 
 	/**
@@ -28,8 +28,8 @@ public class Score {
 
 	public void draw(){
 
-		GameLib.drawText("Player 1: ", 70, GameLib.ALIGN_LEFT);
-		GameLib.drawText("Player 2: ", 70, GameLib.ALIGN_RIGHT);
+		GameLib.drawText(this.playerId + ": " + this.score, 70, GameLib.ALIGN_LEFT);
+		GameLib.drawText(this.playerId + ": " + this.score, 70, GameLib.ALIGN_RIGHT);
 	}
 
 	/**
@@ -38,7 +38,7 @@ public class Score {
 
 	public void inc(){
 		this.score++;
-		GameLib.drawText(Integer.toString(getScore()), 80, GameLib.ALIGN_LEFT);
+		GameLib.drawText(Integer.toString(this.score), 80, GameLib.ALIGN_LEFT);
 	}
 
 	/**

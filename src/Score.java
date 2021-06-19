@@ -18,8 +18,8 @@ public class Score {
 	*/
 
 	public Score(String playerId){
-		this.playerId = playerId;
-		this.score = 0;
+		this.playerId=playerId;
+		this.score=0;
 	}
 
 	/**
@@ -37,7 +37,7 @@ public class Score {
 	*/
 
 	public void inc(){
-		this.score++;
+		this.score = this.score+1;
 		GameLib.drawText(Integer.toString(this.score), 80, GameLib.ALIGN_LEFT);
 	}
 

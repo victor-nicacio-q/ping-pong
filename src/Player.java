@@ -62,9 +62,9 @@ public class Player {
 	*/
 
 	public void moveUp(long delta){
-		double aux = this.speed * delta;
+		double aux = this.speed*delta;
 
-		this.cy -= aux;
+		this.cy = this.cy +aux;
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class Player {
 
 	public void moveDown(long delta){
 
-		double aux = this.speed * delta;
+		double aux = this.speed*delta;
 
 		this.cy += aux;
 	}
@@ -87,8 +87,7 @@ public class Player {
 		@return a String de indentificação.
 	*/
 
-	public String getId() { 
-
+	public String getId() {
 		return this.id;
 	}
 
@@ -97,8 +96,7 @@ public class Player {
 		@return um double com o valor da largura.
 	*/
 
-	public double getWidth() { 
-
+	public double getWidth() {
 		return this.width;
 	}
 
@@ -107,8 +105,8 @@ public class Player {
 		@return um double com o valor da altura.
 	*/
 
-	public double getHeight() { 
-
+	public double getHeight() {
+		
 		return this.height;
 	}
 
@@ -117,8 +115,7 @@ public class Player {
 		@return o valor double da coordenada x.
 	*/
 
-	public double getCx() { 
-		
+	public double getCx() {
 		return this.cx;
 	}
 
@@ -127,8 +124,8 @@ public class Player {
 		@return o valor double da coordenada y.
 	*/
 
-	public double getCy() { 
-	
+	public double getCy() {
+
 		return this.cy;
 	}
 }

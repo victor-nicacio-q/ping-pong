@@ -5,7 +5,7 @@
 
 *Detalhes para compilação*
 	-Foi configurado o arquivo Makefile na pasta src, onde está os arquivos .java.
-	Para compilar é necessário apenas rodar o comando 'make', no mesmo diretório dos arquivos .java.
+	Para compilar é necessário apenas rodar o comando 'make', no diretorio src/.
 
 *Detalhes para execução*
 	-Para executar é preciso apenas rodar o comando 'java Pong', no mesmo diretório dos arquivos .class

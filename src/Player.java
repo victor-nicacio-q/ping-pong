@@ -7,17 +7,16 @@ import java.awt.event.KeyEvent;
 */
 
 public class Player {
-
-	private double cx;
-	private double cy;
-	private double width;
-	private double height;
-	private Color color;
-	private String id;
-	private double[] v_limit;
-	private double speed;
-
-	private double yVel, xVel;
+	double cy;
+	double height;
+	double cx;
+	double width;
+	double speed;
+	double[] v_limit;
+	String id;
+	Color color;
+	double meia_altura = this.height/2;
+	double meia_largura = this.width/2;
 
 	/**
 		Construtor da classe Player.
@@ -49,8 +48,8 @@ public class Player {
 
 	public void draw(){
 
-		GameLib.setColor(this.color);
-		GameLib.fillRect(this.cx, this.cy, this.width, this.height);
+		GameLib.setColor(getColor());
+		GameLib.fillRect(getCx(), getCy(), getWidth(), getHeight());
 	}
 
 	/**
@@ -62,9 +61,9 @@ public class Player {
 	*/
 
 	public void moveUp(long delta){
-		double aux = this.speed*delta;
-
-		this.cy = this.cy +aux;
+		double aux = delta *getSpeed();
+		if(getCy() - getHeight()/2 - aux < getV_limit(0)) aux = (getCy() - getHeight()/2) - getV_limit(0);
+		this.cy -= aux;
 	}
 
 	/**
@@ -77,8 +76,8 @@ public class Player {
 
 	public void moveDown(long delta){
 
-		double aux = this.speed*delta;
-
+		double aux = delta *getSpeed();
+		if(getCy() + getHeight()/2 + aux > getV_limit(1)) aux = getV_limit(1) - (getCy() + getHeight()/2);
 		this.cy += aux;
 	}
 
@@ -106,7 +105,7 @@ public class Player {
 	*/
 
 	public double getHeight() {
-		
+
 		return this.height;
 	}
 
@@ -127,6 +126,21 @@ public class Player {
 	public double getCy() {
 
 		return this.cy;
+	}
+
+	public Color getColor() {
+		return this.color;
+	}
+
+	public double getSpeed() {
+		return this.speed;
+	}
+
+	public double getV_limit(int index) {
+		if(index == 0) return v_limit[0];
+		else if(index == 1) return v_limit[1];
+
+		return 0;
 	}
 }
 
